@@ -1,3 +1,6 @@
+guide-example/
+.gitignore
+
 # Logs
 logs
 *.log
