@@ -1,0 +1,28 @@
+{
+  "name": "a02-functions-kpwhit",
+  "version": "1.0.0",
+  "description": "Assignment package for Comp 426 - a02",
+  "main": "index.js",
+  "scripts": {
+    "test": "node cli.js -n 35.92 -w 70.05 -z America/New_York"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp426-2023-spring/a02-functions-kpwhit.git"
+  },
+  "author": "kpwhit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/comp426-2023-spring/a02-functions-kpwhit/issues"
+  },
+  "homepage": "https://github.com/comp426-2023-spring/a02-functions-kpwhit#readme",
+  "dependencies": {
+    "minimist": "^1.2.8",
+    "moment-timezone": "^0.5.40",
+    "node-fetch": "^3.3.0"
+  },
+  "bin": {
+    "galosh.js": "./cli.js"
+  },
+  "type": "module"
+}
