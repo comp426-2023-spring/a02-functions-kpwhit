@@ -1,5 +1,7 @@
 guide-example/
 .gitignore
+galo.sh/
+
 
 # Logs
 logs
