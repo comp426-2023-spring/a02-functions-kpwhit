@@ -30,7 +30,7 @@ async function main() {
     if (args.e) {
         longitude = args.e.toFixed(2);
     } else if (args.w) {
-        latitude = (-1 * args.w).toFixed(2);
+        longitude = (-1 * args.w).toFixed(2);
     }
 
     const timezone = (args.z || moment.tz.guess());
