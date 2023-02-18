@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import minimist from 'minimist';
-import moment from 'moment-timezone';
-import fetch from 'node-fetch';
 const args = minimist(process.argv.slice(2));
+
+// Give help message
 if (args.h == true) {
     console.log("Usage: galosh.js [options] -[n|s] LATITUDE -[e|w] LONGITUDE -z TIME_ZONE");
     console.log("-h            Show this help message and exit.");
@@ -13,7 +13,17 @@ if (args.h == true) {
     console.log("-j            Echo pretty JSON from open-meteo API and exit.");
 }
 
+import moment from 'moment-timezone';
 const timezone = moment.tz.guess();
+
+import fetch from 'node-fetch';
+const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=precipitation_hours&timezone=${timezone}`);
+const data = await response.json();
+
+if (args.j) {
+    console.log(data);
+}
+
 if (args.w) {
     var latitude = (args.w * -1).toFixed(2);
 } else {
@@ -25,8 +35,6 @@ if (args.s) {
     var longitude = args.n.toFixed(2);
 }
 
-const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=precipitation_hours&timezone=America%2FNew_York`);
-const data = await response.json();
 
 const days = args.d;
 const rain = data.daily.precipitation_hours[days];
